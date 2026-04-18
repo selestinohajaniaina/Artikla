@@ -1,0 +1,192 @@
+<article class="small-card">
+  <!-- Category -->
+  <span class="category-label">{{ article.category || "Articles" }}</span>
+
+  @if(randomPosition === 1) {
+  <!-- Titre -->
+  <div class="small-card-header">
+    <h2>{{ article.title }}</h2>
+  </div>
+
+  <!-- reaction -->
+  <div class="meta-row">
+    <span class="meta-item">
+      <small>Publié</small>
+      <strong>{{ createdAtFormatted }}</strong>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.note }}</strong>
+      <small>J'aime</small>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.views }}</strong>
+      <small>Visites</small>
+    </span>
+  </div>
+
+  <!-- Image -->
+  <figure class="small-card-image">
+    <img
+      [src]="
+        article.imgUrl ||
+        'https://via.placeholder.com/900x500?text=Article+Image'
+      "
+      [alt]="article.title"
+    />
+  </figure>
+
+  <!-- Contenue -->
+  <div class="small-card-content">
+    <p>{{ article.content }}</p>
+  </div>
+  } @else if(randomPosition === 2) {
+  <!-- Contenue -->
+  <div class="small-card-content">
+    <p>{{ article.content }}</p>
+  </div>
+
+  <!-- Titre -->
+  <div class="small-card-header">
+    <h2>{{ article.title }}</h2>
+  </div>
+
+  <!-- reaction -->
+  <div class="meta-row">
+    <span class="meta-item">
+      <small>Publié</small>
+      <strong>{{ createdAtFormatted }}</strong>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.note }}</strong>
+      <small>J'aime</small>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.views }}</strong>
+      <small>Visites</small>
+    </span>
+  </div>
+
+  <!-- Image -->
+  <figure class="small-card-image">
+    <img
+      [src]="
+        article.imgUrl ||
+        'https://via.placeholder.com/900x500?text=Article+Image'
+      "
+      [alt]="article.title"
+    />
+  </figure>
+  } @else if(randomPosition === 3) {
+  <!-- Image -->
+  <figure class="small-card-image">
+    <img
+      [src]="
+        article.imgUrl ||
+        'https://via.placeholder.com/900x500?text=Article+Image'
+      "
+      [alt]="article.title"
+    />
+  </figure>
+
+  <!-- Titre -->
+  <div class="small-card-header">
+    <h2>{{ article.title }}</h2>
+  </div>
+
+  <!-- Contenue -->
+  <div class="small-card-content">
+    <p>{{ article.content }}</p>
+  </div>
+
+  <!-- reaction -->
+  <div class="meta-row">
+    <span class="meta-item">
+      <small>Publié</small>
+      <strong>{{ createdAtFormatted }}</strong>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.note }}</strong>
+      <small>J'aime</small>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.views }}</strong>
+      <small>Visites</small>
+    </span>
+  </div>
+  } @else if(randomPosition === 4) {
+  <!-- reaction -->
+  <div class="meta-row">
+    <span class="meta-item">
+      <small>Publié</small>
+      <strong>{{ createdAtFormatted }}</strong>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.note }}</strong>
+      <small>J'aime</small>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.views }}</strong>
+      <small>Visites</small>
+    </span>
+  </div>
+
+  <!-- Contenue -->
+  <div class="small-card-content">
+    <p>{{ article.content }}</p>
+  </div>
+
+  <!-- Titre -->
+  <div class="small-card-header">
+    <h2>{{ article.title }}</h2>
+  </div>
+
+  <!-- Image -->
+  <figure class="small-card-image">
+    <img
+      [src]="
+        article.imgUrl ||
+        'https://via.placeholder.com/900x500?text=Article+Image'
+      "
+      [alt]="article.title"
+    />
+  </figure>
+  } @else {
+
+  <!-- Image -->
+  <figure class="small-card-image">
+    <img
+      [src]="
+        article.imgUrl ||
+        'https://via.placeholder.com/900x500?text=Article+Image'
+      "
+      [alt]="article.title"
+    />
+  </figure>
+
+  <!-- Titre -->
+  <div class="small-card-header">
+    <h2>{{ article.title }}</h2>
+  </div>
+
+  <!-- reaction -->
+  <div class="meta-row">
+    <span class="meta-item">
+      <small>Publié</small>
+      <strong>{{ createdAtFormatted }}</strong>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.note }}</strong>
+      <small>J'aime</small>
+    </span>
+    <span class="meta-item">
+      <strong>{{ article.views }}</strong>
+      <small>Visites</small>
+    </span>
+  </div>
+
+  <!-- Contenue -->
+  <div class="small-card-content">
+    <p>{{ article.content }}</p>
+  </div>
+  }
+</article>

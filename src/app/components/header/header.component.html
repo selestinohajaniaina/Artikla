@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="logo">Les Etudiants d'intermarché</div>
+  <div class="social-links">
+     @for(link of socialLinks; track link) {
+      <a [href]="link.url" target="_blank">
+        <img [src]="link.icon" [alt]="link.name" />
+      </a>
+    }
+  </div>
+  <p class="header-date">{{ today }}</p>
+  <input type="search" class="header-search" placeholder="Rechercher..." />
+</header>

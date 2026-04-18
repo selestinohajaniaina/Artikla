@@ -1,0 +1,5 @@
+<nav class="navbar">
+  @for (menu of menus; track menu.link) {
+    <button [routerLink]="menu.link" class="nav-link">{{ menu.name }}</button>
+  }
+</nav>

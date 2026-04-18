@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  background: #d64331;
+  padding: 0 16px;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  background: none;
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+}

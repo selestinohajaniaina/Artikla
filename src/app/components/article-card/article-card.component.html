@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="image-wrapper">
+    <div class="category-pill">{{ article.category }}</div>
+    <img [src]="article.imgUrl || 'https://via.placeholder.com/400x280?text=No+Image'" [alt]="article.title" />
+  </div>
+  <div class="article-body">
+    <div class="article-header">
+      <div>
+        <h3>{{ article.title }}</h3>
+        <span class="author">Par {{ article.author || 'Unknown author' }}</span>
+      </div>
+      <button class="badge">J'aime</button>
+    </div>
+
+    <p class="article-excerpt">{{ article.content }}</p>
+
+    <div class="meta-row">
+      <span class="meta-item">
+        <strong>{{ createdAtFormatted }}</strong>
+        <small>Publié</small>
+      </span>
+      <span class="meta-item">
+        <strong>{{ article.note }}</strong>
+        <small>J'aime</small>
+      </span>
+      <span class="meta-item">
+        <strong>{{ article.views  }}</strong>
+        <small>Visites</small>
+      </span>
+    </div>
+  </div>
+</div>

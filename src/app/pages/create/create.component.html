@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>Créer un nouvel article</h1>
+  <p class="desc">
+    Partagez vos moments inoubliables du lycée Les Mousquetaires du Boeny,
+    Besakoa… et laissez une trace de vos souvenirs. Remplissez les champs
+    ci-dessous puis cliquez sur « Publier » pour les partager avec tous.
+  </p>
+
+  <form>
+    <div class="form-group">
+      <label for="title">Titre de l'article</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+        placeholder="Entrez le titre de votre article"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Contenu de l'article</label>
+      <textarea
+        id="content"
+        name="content"
+        class="form-control"
+        rows="10"
+        placeholder="Rédigez votre article ici..."
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Image représentative</label>
+
+      <div class="upload-box">
+        <input
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
+
+        <!-- PREVIEW -->
+        <img *ngIf="previewUrl" [src]="previewUrl" class="preview-img" />
+
+        <!-- PLACEHOLDER -->
+        <div *ngIf="!previewUrl">
+          <p>📁 Cliquez ou glissez une image ici</p>
+          <small>PNG, JPG (max 5MB)</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Catégorie</label>
+      <select name="category" [(ngModel)]="article.category">
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Nom d'auteur</label>
+      <input
+        type="text"
+        id="author"
+        name="author"
+        class="form-control"
+        placeholder="Entrez votre nom"
+      />
+    </div>
+    <button type="button" class="btn-cancel" routerLink="/">
+      Revenir à la page d'accueil
+    </button>
+    <button type="button" class="btn-publish">Publier</button>
+  </form>
+</div>

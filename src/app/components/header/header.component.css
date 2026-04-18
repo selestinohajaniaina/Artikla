@@ -1,0 +1,76 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #353535;
+  flex-wrap: wrap;        /* items wrap on small screens */
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: red;
+  white-space: nowrap;   /* prevent line break mid-title */
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.social-links img {
+  width: 14px;
+  height: 14px;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+input[type="search"] {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 13px;
+  width: 180px;
+  outline: none;
+}
+
+input[type="search"]::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Mobile: stack everything and stretch search ── */
+@media (max-width: 600px) {
+  .header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  input[type="search"] {
+    width: 100%;
+  }
+}
