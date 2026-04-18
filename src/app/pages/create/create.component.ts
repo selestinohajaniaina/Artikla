@@ -3,29 +3,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Article, ArticleCategory } from '../../article';
 import { RouterModule } from '@angular/router';
+import { ArticleService } from '../../service/article.service';
+import { ToastComponent } from '../../components/toast/toast.component';
+import { ImageService } from '../../service/image.service';
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, ToastComponent],
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent {
   public selectedFile!: File;
   public previewUrl: string | null = null;
-
-  categories: ArticleCategory[] = [
-    'College',
-    'Lycée',
-    'Articles',
-    'Visite',
-    'Penssionat',
-    'Village',
-    'unima',
-  ];
-
-  article: Article = {
+  public loading: boolean = false;
+  public error: string | null = null;
+  public showToast: boolean = false;
+  public article: Article = {
     id: null,
     title: '',
     content: '',
@@ -36,13 +31,64 @@ export class CreateComponent {
     views: 0,
     category: 'Articles',
   };
+  categories: ArticleCategory[] = [
+    'College',
+    'Lycée',
+    'Articles',
+    'Visite',
+    'Penssionat',
+    'Village',
+    'unima',
+  ];
 
-  submitted = false;
+  constructor(private articleService: ArticleService, private imageService: ImageService) {}
 
   onSubmit(): void {
-    this.submitted = true;
+    if (!this.article.title || !this.article.content || !this.article.author) {
+      this.error = 'Veuillez remplir tous les champs requis.';
+      return;
+    }
+    if (!this.article.imgUrl) {
+      this.error = 'Veuillez importer une image.';
+      return;
+    }
+    this.error = null;
+    this.loading = true;
     this.article.createdAt = new Date();
-    console.log('New article created:', this.article);
+    this.articleService.addArticle(this.article)
+    .subscribe(
+      (response: any) => {
+        if (response && response.success) {
+          console.log('Article successfully created:', response);
+          this.article = {
+            id: null,
+            title: '',
+            content: '',
+            createdAt: null,
+            imgUrl: null,
+            author: null,
+            note: 3,
+            views: 0,
+            category: 'Articles',
+          };
+          this.previewUrl = null;
+          this.loading = false;
+          this.showToast = true;
+          setTimeout(() => {
+            this.showToast = false;
+          }, 4000);
+        } else {
+          console.error('Unexpected response format:', response);
+          this.error = 'Une erreur est survenue lors de la création de l\'article.';
+          this.loading = false;
+        }
+      },
+      (error) => {
+        console.error('Error creating article:', error);
+        this.error = 'Une erreur est survenue lors de la création de l\'article.';
+        this.loading = false;
+      }
+    );
   }
 
   onFileSelected(event: any) {
@@ -54,8 +100,19 @@ export class CreateComponent {
       const reader = new FileReader();
       reader.onload = () => {
         this.previewUrl = reader.result as string;
+        this.imageService.getAllArticles(this.previewUrl).subscribe(
+          (response: any) => {
+            if (response && response.success) {
+              this.article.imgUrl = response.data.filename;
+            }
+          },
+          (error) => {
+            console.error('Error uploading image:', error);
+          }
+        );
       };
       reader.readAsDataURL(file);
+      
     }
   }
 }

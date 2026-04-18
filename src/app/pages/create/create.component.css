@@ -141,6 +141,13 @@ select {
   object-fit: cover;
 }
 
+.error-message {
+  color: #e53e3e;
+  padding: 0 0 10px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 @media (max-width: 600px) {
   /* BOX STYLE */
   .upload-box {

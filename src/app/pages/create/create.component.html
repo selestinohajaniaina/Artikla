@@ -15,6 +15,7 @@
         name="title"
         class="form-control"
         placeholder="Entrez le titre de votre article"
+        [(ngModel)]="article.title"
       />
     </div>
 
@@ -26,6 +27,7 @@
         class="form-control"
         rows="10"
         placeholder="Rédigez votre article ici..."
+        [(ngModel)]="article.content"
       ></textarea>
     </div>
 
@@ -67,11 +69,24 @@
         name="author"
         class="form-control"
         placeholder="Entrez votre nom"
+        [(ngModel)]="article.author"
       />
     </div>
+
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+
     <button type="button" class="btn-cancel" routerLink="/">
       Revenir à la page d'accueil
     </button>
-    <button type="button" class="btn-publish">Publier</button>
+    <button *ngIf="!loading" type="button" class="btn-publish" (click)="onSubmit()">Publier</button>
+    <button *ngIf="loading" type="button" class="btn-publish" disabled>
+      ...
+    </button>
   </form>
 </div>
+
+@if (showToast) {
+  <app-toast message="Article publié avec succès!" (closed)="showToast = false"/>
+}
