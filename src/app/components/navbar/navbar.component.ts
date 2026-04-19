@@ -11,13 +11,13 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent {
   menus = [
     {'name': 'Actualités', 'link': '/'},
-    {'name': 'College', 'link': '/c/College'},
+    {'name': 'Collège', 'link': '/c/College'},
     {'name': 'Lycée', 'link': '/c/Lycée'},
     {'name': 'Articles', 'link': '/c/Articles'},
     {'name': 'Visite', 'link': '/c/Visite'},
-    {'name': 'Penssionat', 'link': '/c/Penssionat'},
+    {'name': 'Pensionnat', 'link': '/c/Pensionnat'},
     {'name': 'Village', 'link': '/c/Village'},
-    {'name': 'Creer un article', 'link': '/new'},
+    {'name': 'Créer un article', 'link': '/new'},
     {'name': 'Contacter', 'link': '/contact'}
   ];
 }

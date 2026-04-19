@@ -8,7 +8,9 @@
 <div class="cs-wrap">
   <h3 class="cs-title">Commentaires</h3>
 
-  <app-comment />
+  @if(commentaires) {
+  <app-comment [commentaires]="commentaires" />
+  }
 
   <button type="button" class="btn-cancel" routerLink="/">
     Revenir à la page d'accueil

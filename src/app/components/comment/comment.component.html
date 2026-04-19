@@ -1,21 +1,27 @@
-<div class="cs-item">
-  <div
-    class="cs-avatar"
-    [style.background]="avatarBackground"
-    [style.border]="'2px solid ' + avatarBorder"
-  >
-    JD
-  </div>
-  <div class="cs-body">
-    <p class="cs-name">John Doe</p>
-    <p class="cs-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-    </p>
-    <div class="cs-meta">
-      <span class="cs-date">📅 27/02/2014</span>
+@for (comment of commentaires; track comment.id) {
+  <div class="cs-item">
+    <div
+      class="cs-avatar"
+      [style.background]="getRandomBackgroundColor().background"
+      [style.border]="'2px solid ' + getRandomBackgroundColor().border"
+    >
+      {{ getAvatarInitials(comment.author!) || 'UA' }}
+    </div>
+    <div class="cs-body">
+      <p class="cs-name">{{ comment.author || 'Utilisateur inconnu' }}</p>
+      <p class="cs-text">
+        {{ comment.content }}
+      </p>
+      <div class="cs-meta">
+        <span class="cs-date">📅 {{ getCreatedAtFormatted(comment.createdAt) }}</span>
+      </div>
     </div>
   </div>
-</div>
+}
+
+@if (commentaires.length === 0) {
+  <p class="no-comments">Aucun commentaire pour le moment. Soyez le premier à commenter !</p>
+}
 
 
   <!-- ajout commentaire section -->
@@ -23,10 +29,10 @@
     <div class="cf-row">
       <div
         class="cf-avatar"
-        [style.background]="avatarBackground"
-        [style.border]="'2px solid ' + avatarBorder"
+        [style.background]="myAvatarBackground"
+        [style.border]="'2px solid ' + myAvatarBorder"
       >
-        JD
+        {{ getAvatarInitials(user) || 'UA' }}
       </div>
       <div class="cf-box" [class.focused]="isFocused">
         <textarea
@@ -46,15 +52,32 @@
           </span>
           <div class="cf-actions">
             <button class="cf-cancel" (click)="reset()">Annuler</button>
-            <button
-              class="cf-submit"
-              [disabled]="!commentText.trim()"
-              (click)="submit()"
-            >
-              Publier
-            </button>
+            @if (!loading) {
+              <button
+                class="cf-submit"
+                [disabled]="!commentText.trim()"
+                (click)="submit()"
+              >
+                Publier
+              </button>
+            } @else {
+              <button
+                class="cf-submit"
+              >
+                ...
+              </button>
+            }
           </div>
         </div>
       </div>
     </div>
+    <p>Vous commentez en tant que <span class="name">{{ user }}</span> ( <span class="update-name" (click)="showPopup = true"> Modifier</span> )</p>
   </div>
+
+@if (showToast) {
+  <app-toast [message]="message" (closed)="showToast = false"/>
+}
+
+@if (showPopup) {
+  <app-popup [username]="user" (closed)="showPopup = false" (saved)="updateUsername($event)"/>
+}

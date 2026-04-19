@@ -5,14 +5,14 @@
   gap: 12px;
   padding: 12px 20px;
   background: #353535;
-  flex-wrap: wrap;        /* items wrap on small screens */
+  flex-wrap: wrap;
 }
 
 .logo {
   font-size: 20px;
   font-weight: 600;
   color: red;
-  white-space: nowrap;   /* prevent line break mid-title */
+  white-space: wrap;
 }
 
 .social-links {

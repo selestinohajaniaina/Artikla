@@ -33,16 +33,18 @@ export class CreateComponent {
     category: 'Articles',
   };
   categories: ArticleCategory[] = [
-    'College',
+    'Collège',
     'Lycée',
     'Articles',
     'Visite',
-    'Penssionat',
+    'Pensionnat',
     'Village',
     'unima',
   ];
 
-  constructor(private articleService: ArticleService, private imageService: ImageService, private sessionService: SessionService) {}
+  constructor(private articleService: ArticleService, private imageService: ImageService, private sessionService: SessionService) {
+    this.article.author = this.sessionService.getUser();
+  }
 
   onSubmit(): void {
     if (!this.article.title || !this.article.content || !this.article.author) {
@@ -62,8 +64,9 @@ export class CreateComponent {
         if (response && response.success) {
           console.log('Article successfully created:', response);
           let allArticles = this.sessionService.getArticles();
-          allArticles.push(this.article);
+          allArticles.push(response.data);
           this.sessionService.storeArticles(allArticles);
+          this.sessionService.setUser(this.article.author!);
           this.article = {
             id: null,
             title: '',

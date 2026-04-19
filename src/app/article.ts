@@ -1,13 +1,11 @@
 export type ArticleCategory =
-    | 'College'
+    | 'Collège'
     | 'Lycée'
     | 'Articles'
     | 'Visite'
-    | 'Penssionat'
+    | 'Pensionnat'
     | 'Village'
-    | 'unima'
-    | 'Creer un article'
-    | 'Contacter';
+    | 'unima';
 
 export interface Article {
     id: number | null;
@@ -19,10 +17,10 @@ export interface Article {
     likes: number;
     visited: number;
     category: ArticleCategory;
-    commentaires?: commentaires[];
+    Commentaires?: Commentaire[];
 }
 
-export interface commentaires {
+export interface Commentaire {
     id: number | null;
     articleId: number | null;
     content: string;

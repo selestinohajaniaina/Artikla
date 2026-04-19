@@ -170,3 +170,22 @@ textarea::placeholder {
 .cf-submit[disabled] {
   cursor: not-allowed;
 }
+
+.cf-wrap p {
+  font-size: 10pt;
+  color: #666;
+}
+
+.cf-wrap p .update-name {
+  color: #185fa5;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.cf-wrap p .update-name:hover {
+  text-decoration: underline;
+}
+
+.cf-wrap p .name {
+  font-weight: bolder;
+}

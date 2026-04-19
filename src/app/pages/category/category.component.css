@@ -1,5 +1,5 @@
 h3 {
-  margin: 0;
+  margin: 10px 0;
   font-size: 1.8rem;
   line-height: 1.1;
   color: red;
@@ -9,4 +9,27 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+}
+
+.btn-publish {
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  color: white;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: linear-gradient(135deg, #d1d1d1, #b5bac5);
+  color: rgb(23, 23, 23);
+  padding: 10px 16px;
+  margin: 0 2px 2px 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
 }

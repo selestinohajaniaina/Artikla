@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Article } from '../article';
+import { Article, Commentaire } from '../article';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class ArticleService {
 
   addArticle(article: Article) {
     return this.http.post(`${this.URL}/article`, article);
+  }
+
+  addCommentaire(commentaire: Commentaire) {
+    return this.http.post(`${this.URL}/article/commentaire`, commentaire);
   }
 
   likeArticle(article: Article) {

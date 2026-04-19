@@ -1,7 +1,18 @@
-<h3>Actualités</h3>
+<h3>{{ category }}</h3>
 
 <div class="body-article">
   @for (article of articles; track article) {
     <app-litle-article-card [article]="article" />
   }
 </div>
+
+@if (articles.length === 0) {
+  <p class="text-center">Aucun article dans cette catégorie. Soyez le premier à en créer un !</p>
+}
+
+<button type="button" class="btn-cancel" routerLink="/">
+  Revenir à la page d'accueil
+</button>
+<button type="button" class="btn-publish" routerLink="/new">
+  Créer un article
+</button>

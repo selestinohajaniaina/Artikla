@@ -28,7 +28,7 @@
 
 .small-card-header h2 {
   margin: 0;
-  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-size: clamp(1.2rem, 2vw, 2.4rem);
   line-height: 1.05;
   color: #7a1218;
   transition: color 0.3s ease;
