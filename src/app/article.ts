@@ -16,7 +16,16 @@ export interface Article {
     createdAt: Date | string | null;
     imgUrl: string | null;
     author: string | null;
-    note: number;
-    views: number;
+    likes: number;
+    visited: number;
     category: ArticleCategory;
+    commentaires?: commentaires[];
+}
+
+export interface commentaires {
+    id: number | null;
+    articleId: number | null;
+    content: string;
+    author: string | null;
+    createdAt: Date | string | null;
 }

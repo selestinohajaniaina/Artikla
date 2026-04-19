@@ -1,0 +1,31 @@
+
+.indice {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cs-wrap {
+  padding: 1rem 0;
+  max-width: 600px;
+  margin: 0 0 0 20px;
+}
+
+.cs-title {
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.btn-cancel {
+  background: linear-gradient(135deg, #d1d1d1, #b5bac5);
+  color: rgb(23, 23, 23);
+  padding: 10px 16px;
+  margin: 0 2px 2px 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+}

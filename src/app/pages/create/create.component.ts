@@ -28,8 +28,8 @@ export class CreateComponent {
     createdAt: null,
     imgUrl: null,
     author: null,
-    note: 3,
-    views: 0,
+    likes: 0,
+    visited: 0,
     category: 'Articles',
   };
   categories: ArticleCategory[] = [
@@ -71,8 +71,8 @@ export class CreateComponent {
             createdAt: null,
             imgUrl: null,
             author: null,
-            note: 3,
-            views: 0,
+            likes: 0,
+            visited: 0,
             category: 'Articles',
           };
           this.previewUrl = null;
@@ -97,21 +97,32 @@ export class CreateComponent {
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
-
+    this.loading = true;
     if (file) {
       this.selectedFile = file;
 
       const reader = new FileReader();
       reader.onload = () => {
         this.previewUrl = reader.result as string;
-        this.imageService.getAllArticles(this.previewUrl).subscribe(
+        this.imageService.uploadImage(this.previewUrl).subscribe(
           (response: any) => {
             if (response && response.success) {
               this.article.imgUrl = response.data.filename;
+              this.loading = false;
+            } else {
+              console.error('Unexpected response format:', response);
+              this.error = 'Une erreur est survenue lors de l\'upload de l\'image.';
+              this.loading = false;
+              this.article.imgUrl = null;
+              this.previewUrl = null;
             }
           },
           (error) => {
             console.error('Error uploading image:', error);
+            this.loading = false;
+            this.previewUrl = null;
+            this.error = 'Une erreur est survenue lors de l\'upload de l\'image.';
+            this.article.imgUrl = null;
           }
         );
       };

@@ -148,6 +148,13 @@ select {
   font-weight: bold;
 }
 
+.indice {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
 @media (max-width: 600px) {
   /* BOX STYLE */
   .upload-box {

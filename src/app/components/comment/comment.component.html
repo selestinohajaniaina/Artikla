@@ -1,0 +1,60 @@
+<div class="cs-item">
+  <div
+    class="cs-avatar"
+    [style.background]="avatarBackground"
+    [style.border]="'2px solid ' + avatarBorder"
+  >
+    JD
+  </div>
+  <div class="cs-body">
+    <p class="cs-name">John Doe</p>
+    <p class="cs-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+    </p>
+    <div class="cs-meta">
+      <span class="cs-date">📅 27/02/2014</span>
+    </div>
+  </div>
+</div>
+
+
+  <!-- ajout commentaire section -->
+  <div class="cf-wrap">
+    <div class="cf-row">
+      <div
+        class="cf-avatar"
+        [style.background]="avatarBackground"
+        [style.border]="'2px solid ' + avatarBorder"
+      >
+        JD
+      </div>
+      <div class="cf-box" [class.focused]="isFocused">
+        <textarea
+          [(ngModel)]="commentText"
+          [maxlength]="maxLength"
+          placeholder="Écrire un commentaire…"
+          (focus)="isFocused = true"
+          (blur)="isFocused = false"
+        ></textarea>
+        <div class="cf-footer">
+          <span
+            class="cf-count"
+            [class.warn]="remaining <= 50"
+            [class.over]="remaining <= 0"
+          >
+            {{ remaining }}
+          </span>
+          <div class="cf-actions">
+            <button class="cf-cancel" (click)="reset()">Annuler</button>
+            <button
+              class="cf-submit"
+              [disabled]="!commentText.trim()"
+              (click)="submit()"
+            >
+              Publier
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

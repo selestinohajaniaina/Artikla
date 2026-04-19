@@ -5,7 +5,7 @@
   @if(randomPosition === 1) {
   <!-- Titre -->
   <div class="small-card-header">
-    <h2>{{ article.title }}</h2>
+    <h2 [routerLink]="['/article', article.id]">{{ article.title }}</h2>
   </div>
 
   <!-- reaction -->
@@ -15,11 +15,11 @@
       <strong>{{ createdAtFormatted }}</strong>
     </span>
     <span class="meta-item">
-      <strong>{{ article.note }}</strong>
+      <strong>{{ article.likes || 0 }}</strong>
       <small>J'aime</small>
     </span>
     <span class="meta-item">
-      <strong>{{ article.views }}</strong>
+      <strong>{{ article.visited || 0 }}</strong>
       <small>Visites</small>
     </span>
   </div>
@@ -44,7 +44,7 @@
 
   <!-- Titre -->
   <div class="small-card-header">
-    <h2>{{ article.title }}</h2>
+    <h2 [routerLink]="['/article', article.id]">{{ article.title }}</h2>
   </div>
 
   <!-- reaction -->
@@ -54,11 +54,11 @@
       <strong>{{ createdAtFormatted }}</strong>
     </span>
     <span class="meta-item">
-      <strong>{{ article.note }}</strong>
+      <strong>{{ article.likes || 0 }}</strong>
       <small>J'aime</small>
     </span>
     <span class="meta-item">
-      <strong>{{ article.views }}</strong>
+      <strong>{{ article.visited || 0 }}</strong>
       <small>Visites</small>
     </span>
   </div>
@@ -81,7 +81,7 @@
 
   <!-- Titre -->
   <div class="small-card-header">
-    <h2>{{ article.title }}</h2>
+    <h2 [routerLink]="['/article', article.id]">{{ article.title }}</h2>
   </div>
 
   <!-- Contenue -->
@@ -96,11 +96,11 @@
       <strong>{{ createdAtFormatted }}</strong>
     </span>
     <span class="meta-item">
-      <strong>{{ article.note }}</strong>
+      <strong>{{ article.likes || 0 }}</strong>
       <small>J'aime</small>
     </span>
     <span class="meta-item">
-      <strong>{{ article.views }}</strong>
+      <strong>{{ article.visited || 0 }}</strong>
       <small>Visites</small>
     </span>
   </div>
@@ -112,11 +112,11 @@
       <strong>{{ createdAtFormatted }}</strong>
     </span>
     <span class="meta-item">
-      <strong>{{ article.note }}</strong>
+      <strong>{{ article.likes || 0 }}</strong>
       <small>J'aime</small>
     </span>
     <span class="meta-item">
-      <strong>{{ article.views }}</strong>
+      <strong>{{ article.visited || 0 }}</strong>
       <small>Visites</small>
     </span>
   </div>
@@ -128,7 +128,7 @@
 
   <!-- Titre -->
   <div class="small-card-header">
-    <h2>{{ article.title }}</h2>
+    <h2 [routerLink]="['/article', article.id]">{{ article.title }}</h2>
   </div>
 
   <!-- Image -->
@@ -150,7 +150,7 @@
 
   <!-- Titre -->
   <div class="small-card-header">
-    <h2>{{ article.title }}</h2>
+    <h2 [routerLink]="['/article', article.id]">{{ article.title }}</h2>
   </div>
 
   <!-- reaction -->
@@ -160,11 +160,11 @@
       <strong>{{ createdAtFormatted }}</strong>
     </span>
     <span class="meta-item">
-      <strong>{{ article.note }}</strong>
+      <strong>{{ article.likes || 0 }}</strong>
       <small>J'aime</small>
     </span>
     <span class="meta-item">
-      <strong>{{ article.views }}</strong>
+      <strong>{{ article.visited || 0 }}</strong>
       <small>Visites</small>
     </span>
   </div>
@@ -174,4 +174,5 @@
     <p>{{ article.content }}</p>
   </div>
   }
+  <a [routerLink]="['/article', article.id]" class="show-detail">Lire la suite ></a>
 </article>

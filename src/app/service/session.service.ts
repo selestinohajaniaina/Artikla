@@ -30,7 +30,7 @@ export class SessionService {
       return null;
     }
     return articles.reduce((mostViewed, current) => {
-      return current.views > mostViewed.views ? current : mostViewed;
+      return current.visited > mostViewed.visited ? current : mostViewed;
     });
   }
 
@@ -46,7 +46,16 @@ export class SessionService {
     });
   }
 
+  setUser(name: string): void {
+    localStorage.setItem('user', name);
+  }
+
+  getUser(): string | null {
+    return localStorage.getItem('user');
+  }
+
   clearSession(): void {
     sessionStorage.clear();
+    localStorage.clear();
   }
 }

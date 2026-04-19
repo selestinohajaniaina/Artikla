@@ -9,7 +9,13 @@
         <h3>{{ article.title }}</h3>
         <span class="author">Par {{ article.author || 'Unknown author' }}</span>
       </div>
-      <button class="badge">J'aime</button>
+      @if (!loading) {
+        <button class="badge" (click)="likeArticle(article)">
+          J'aime
+        </button>
+      } @else {
+        <button class="badge"> ... </button>
+      }
     </div>
 
     <p class="article-excerpt">{{ article.content }}</p>
@@ -20,13 +26,17 @@
         <small>Publié</small>
       </span>
       <span class="meta-item">
-        <strong>{{ article.note }}</strong>
+        <strong>{{ article.likes || 0 }}</strong>
         <small>J'aime</small>
       </span>
       <span class="meta-item">
-        <strong>{{ article.views  }}</strong>
+        <strong>{{ article.visited || 0 }}</strong>
         <small>Visites</small>
       </span>
     </div>
   </div>
 </div>
+
+@if (showToast) {
+  <app-toast [message]="message" (closed)="showToast = false"/>
+}

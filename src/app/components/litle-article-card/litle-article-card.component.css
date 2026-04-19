@@ -31,6 +31,12 @@
   font-size: clamp(1.8rem, 2vw, 2.4rem);
   line-height: 1.05;
   color: #7a1218;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.small-card-header h2:hover {
+  text-decoration: underline;
 }
 
 .meta-row {
@@ -84,6 +90,18 @@
   line-height: 1.85;
   font-size: 1rem;
   text-align: justify;
+}
+
+.show-detail {
+  color: gray;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 10pt;
+}
+
+.show-detail:hover {
+  color: #d64331;
+  text-decoration: underline;
 }
 
 @media (max-width: 700px) {

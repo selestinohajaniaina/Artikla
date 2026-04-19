@@ -50,6 +50,11 @@
           <small>PNG, JPG (max 5MB)</small>
         </div>
       </div>
+      @if (loading && !previewUrl) {
+        <p class="indice">Téléchargement de l'image...</p>
+      } @else if (previewUrl) {
+        <p class="indice">(toucher l'image pour la modifier)</p>
+      }
     </div>
 
     <div class="form-group">

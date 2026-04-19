@@ -10,7 +10,7 @@ export class ImageService {
 
   constructor(private http: HttpClient) { }
 
-  getAllArticles(imageBase64: string) {
+  uploadImage(imageBase64: string) {
     return this.http.post(`${this.URL}/article/upload`, { imageBase64 });
   }
   

@@ -23,4 +23,9 @@ export class ArticleService {
     return this.http.post(`${this.URL}/article`, article);
   }
 
+  likeArticle(article: Article) {
+    return this.http.post(`${this.URL}/article/likes`, article);
+  }
+
+
 }
