@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Article } from '../../article';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { ArticleService } from '../../service/article.service';
 import { SessionService } from '../../service/session.service';
 import { ToastComponent } from '../toast/toast.component';
