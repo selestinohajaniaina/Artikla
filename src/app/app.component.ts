@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ArticleService } from './service/article.service';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,13 @@ import { FooterComponent } from './components/footer/footer.component';
 })
 export class AppComponent {
   title = 'artikla-web';
+
+  constructor(private articleService: ArticleService) {
+    this.articleService.getAllArticles()
+    .subscribe((response: any) => {
+      if (response && response.success) {
+        sessionStorage.setItem('articles', JSON.stringify(response.data));
+      }
+    });
+  }
 }

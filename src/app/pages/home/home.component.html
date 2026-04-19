@@ -3,9 +3,7 @@
 <h3>Actualités</h3>
 
 <div class="body-article">
-  <app-litle-article-card [article]="topArticle" />
-  <app-litle-article-card [article]="topArticle" />
-  <app-litle-article-card [article]="topArticle" />
-  <app-litle-article-card [article]="topArticle" />
-  <app-litle-article-card [article]="topArticle" />
+  @for (article of articles; track article) {
+    <app-litle-article-card [article]="article" />
+  }
 </div>

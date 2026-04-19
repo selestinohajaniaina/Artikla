@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ArticleService } from '../../service/article.service';
 import { ToastComponent } from '../../components/toast/toast.component';
 import { ImageService } from '../../service/image.service';
+import { SessionService } from '../../service/session.service';
 
 @Component({
   selector: 'app-create',
@@ -41,7 +42,7 @@ export class CreateComponent {
     'unima',
   ];
 
-  constructor(private articleService: ArticleService, private imageService: ImageService) {}
+  constructor(private articleService: ArticleService, private imageService: ImageService, private sessionService: SessionService) {}
 
   onSubmit(): void {
     if (!this.article.title || !this.article.content || !this.article.author) {
@@ -60,6 +61,9 @@ export class CreateComponent {
       (response: any) => {
         if (response && response.success) {
           console.log('Article successfully created:', response);
+          let allArticles = this.sessionService.getArticles();
+          allArticles.push(this.article);
+          this.sessionService.storeArticles(allArticles);
           this.article = {
             id: null,
             title: '',
