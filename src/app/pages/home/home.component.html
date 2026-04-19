@@ -2,8 +2,14 @@
 
 <h3>Actualités</h3>
 
-<div class="body-article">
-  @for (article of articles; track article) {
-    <app-litle-article-card [article]="article" />
-  }
-</div>
+@if(articles) {
+  <div class="body-article">
+    @for (article of articles; track article) {
+      <app-litle-article-card [article]="article" />
+    }
+  </div>
+}
+
+@if(!articles) {
+  Chargement...
+}

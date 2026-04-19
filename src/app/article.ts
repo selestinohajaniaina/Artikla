@@ -16,7 +16,7 @@ export interface Article {
     author: string | null;
     likes: number;
     visited: number;
-    category: ArticleCategory;
+    category: string;
     Commentaires?: Commentaire[];
 }
 
