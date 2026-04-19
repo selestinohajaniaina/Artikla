@@ -1,4 +1,4 @@
 export const environment = {
-    SERVERURL: 'http://localhost:3000/api',
-    FILEURL: 'http://localhost:3000/uploads',
+    SERVERURL: 'https://artikla-node.onrender.com/api',
+    FILEURL: 'https://artikla-node.onrender.com/uploads',
 };
