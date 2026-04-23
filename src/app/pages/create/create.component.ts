@@ -110,7 +110,7 @@ export class CreateComponent {
         this.imageService.uploadImage(this.previewUrl).subscribe(
           (response: any) => {
             if (response && response.success) {
-              this.article.imgUrl = response.data.filename;
+              this.article.imgUrl = response.data.public_id;
               this.loading = false;
             } else {
               console.error('Unexpected response format:', response);

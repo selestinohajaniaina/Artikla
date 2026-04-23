@@ -36,10 +36,6 @@ export class ArticleCardComponent {
       : 'Unknown date';
   }
 
-  getImageUrl(fileName: string | null): string {
-    return `${environment.FILEURL}/${fileName}`;
-  }
-
   likeArticle(article: Article): void {
     this.loading = true;
     this.articleService.likeArticle(article).subscribe(

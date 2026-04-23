@@ -29,7 +29,4 @@ export class LitleArticleCardComponent {
       : 'Date inconnue';
   }
 
-  getImageUrl(fileName: string | null): string {
-    return `${environment.FILEURL}/${fileName}`;
-  }
 }
